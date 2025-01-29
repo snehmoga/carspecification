@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Cars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .header {
+            background-color: #323335;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        .login-form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .login-form h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .login-button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .google {
+            background-color: #db4437;
+            color: white;
+        }
+        .google:hover {
+            background-color: #c23321;
+        }
+        .github {
+            background-color: #333;
+            color: white;
+        }
+        .github:hover {
+            background-color: #24292e;
+        }
+        .apple {
+            background-color: #000;
+            color: white;
+        }
+        .apple:hover {
+            background-color: #1c1c1c;
+        }
+        .user-login-form input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .user-login-form button {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .user-login-form button:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .card p {
+            color: #555;
+        }
+        .car-details {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .car-details h4 {
+            font-size: 20px;
+            color: #323335;
+        }
+        .car-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .car-details ul li {
+            margin: 5px 0;
+        }
+    </style>
+    <script>
+        function loginWith(service) {
+            switch (service) {
+                case 'google':
+                    window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth';
+                    break;
+                case 'github':
+                    window.location.href = 'https://github.com/login/oauth/authorize';
+                    break;
+                case 'apple':
+                    window.location.href = 'https://appleid.apple.com/auth/authorize';
+                    break;
+                default:
+                    alert('Invalid service');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <h1>Car Catalog</h1>
+    </header>
+
+    <div class="login-container">
+        <!-- Social Login Buttons -->
+        <div class="login-form">
+            <h1>Social Login</h1>
+            <button class="login-button google" onclick="loginWith('google')">Login with Google</button>
+            <button class="login-button github" onclick="loginWith('github')">Login with GitHub</button>
+            <button class="login-button apple" onclick="loginWith('apple')">Login with Apple</button>
+        </div>
+        <!-- User Login Form -->
+        <div class="login-form">
+            <h1>User Login</h1>
+            <form class="user-login-form" onsubmit="handleLogin(event)">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Car cards -->
+        <div class="card">
+            <img src="s90.jpg" alt="Ferrari SF90 Stradale">
+            <h3>Ferrari SF90 Stradale</h3>
+            <p>Brand: Ferrari<br>Year: 2023<br>Price: $625,000</p>
+            <div class="car-details">
+                <h4>Specifications</h4>
+                <ul>
+                    <li><strong>Engine:</strong> 4.0L V8 Twin-Turbo</li>
+                    <li><strong>Horsepower:</strong> 986 hp</li>
+                    <li><strong>Top Speed:</strong> 211 mph</li>
+                    <li><strong>Acceleration (0-60 mph):</strong> 2.5 seconds</li>
+                    <li><strong>Transmission:</strong> 8-speed Dual-Clutch</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <img src="2022-lamborghini-aventador-109-1625607587.jpg" alt="Lamborghini Aventador">
+            <h3>Lamborghini Aventador</h3>
+            <p>Brand: Lamborghini<br>Year: 2022<br>Price: $550,000</p>
+            <div class="car-details">
+                <h4>Specifications</h4>
+                <ul>
+                    <li><strong>Engine:</strong> 6.5L V12</li>
+                    <li><strong>Horsepower:</strong> 730 hp</li>
+                    <li><strong>Top Speed:</strong> 217 mph</li>
+                    <li><strong>Acceleration (0-60 mph):</strong> 2.9 seconds</li>
+                    <li><strong>Transmission:</strong> 7-speed Automated Manual</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Portfolio-Magazine-Review-Porsche-Carrera-4S_car.jpg" alt="Porsche 911 Turbo S">
+            <h3>Porsche 911 Turbo S</h3>
+            <p>Brand: Porsche<br>Year: 2023<br>Price: $210,000</p>
+            <div class="car-details">
+                <h4>Specifications</h4>
+                <ul>
+                    <li><strong>Engine:</strong> 3.8L Twin-Turbocharged Flat-6</li>
+                    <li><strong>Horsepower:</strong> 640 hp</li>
+                    <li><strong>Top Speed:</strong> 205 mph</li>
+                    <li><strong>Acceleration (0-60 mph):</strong> 2.6 seconds</li>
+                    <li><strong>Transmission:</strong> 8-speed Dual-Clutch</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <img src="1740313-3840x2160-desktop-4k-mclaren-720s-background-photo.jpg" alt="Car 4">
+            <h3>McLaren 720S</h3>
+            <p>Brand: McLaren<br>Year: 2022<br>Price: $299,000</p>
+            <div class="car-details">
+                <h4>Specifications</h4>
+                <ul>
+                    <li><strong>Engine:</strong> 3.8L Twin-Turbocharged V8</li>
+                    <li><strong>Horsepower:</strong> 710 hp</li>
+                    <li><strong>Top Speed:</strong> 212 mph</li>
+                    <li><strong>Acceleration (0-60 mph):</strong> 2.7 seconds</li>
+                    <li><strong>Transmission:</strong> 7-speed Dual-Clutch</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <img src="bugatti_chiron_pur_sport_4k_5k_hd_cars-3840x2160.jpg" alt="Car 5">
+            <h3>Bugatti Chiron</h3>
+            <p>Brand: Bugatti<br>Year: 2022<br>Price: $3,000,000</p>
+        </div>
+        <div class="card">
+            <img src="2018_aston_martin_db11_amr_4k_4-HD.jpg" alt="Car 6">
+            <h3>Aston Martin DB11</h3>
+            <p>Brand: Aston Martin<br>Year: 2023<br>Price: $220,000</p>
+        </div>
+        <div class="card">
+            <img src="bentley-continental-gt-2018-4k-1g.jpg" alt="Car 7">
+            <h3>Bentley Continental GT</h3>
+            <p>Brand: Bentley<br>Year: 2023<br>Price: $230,000</p>
+        </div>
+        <div class="card">
+            <img src="mceu_97040711331673261477297.jpg" alt="Car 8">
+            <h3>Rolls-Royce Phantom</h3>
+            <p>Brand: Rolls-Royce<br>Year: 2023<br>Price: $450,000</p>
+        </div>
+        <div class="card">
+            <img src="chevrolet-corvette-c8-z06-z07-pkg.jpg" alt="Car 9">
+            <h3>Chevrolet Corvette C8</h3>
+            <p>Brand: Chevrolet<br>Year: 2023<br>Price: $65,000</p>
+        </div>
+        <div class="card">
+            <img src="2023-Ford-Mustang-Mach-1-6M-42.jpg" alt="Car 10">
+            <h3>Ford Mustang Mach 1</h3>
+            <p>Brand: Ford<br>Year: 2023<br>Price: $60,000</p>
+        </div>
+        <div class="card">
+            <img src="wh1al52q.jpg" alt="Car 11">
+            <h3>Tesla Model S Plaid</h3>
+            <p>Brand: Tesla<br>Year: 2023<br>Price: $130,000</p>
+        </div>
+        <div class="card">
+            <img src="01_18.jpg" alt="Car 12">
+            <h3>BMW M8 Competition</h3>
+            <p>Brand: BMW<br>Year: 2023<br>Price: $135,000</p>
+        </div>
+        <div class="card">
+            <img src="357061_2020_Audi_R8.jpg" alt="Car 13">
+            <h3>Audi R8 V10</h3>
+            <p>Brand: Audi<br>Year: 2022<br>Price: $160,000</p>
+        </div>
+        <div class="card">
+            <img src="mercedes_amg_gt_r_4k.jpg" alt="Car 14">
+            <h3>Mercedes-AMG GT</h3>
+            <p>Brand: Mercedes<br>Year: 2023<br>Price: $120,000</p>
+        </div>
+        <div class="card">
+            <img src="a27524a2b493587bd3163add9b9bebbf.jpg" alt="Car 15">
+            <h3>Nissan GT-R</h3>
+            <p>Brand: Nissan<br>Year: 2023<br>Price: $115,000</p>
+        </div>
+        <div class="card">
+            <img src="1-jaguar-f-type-2020-uk-fd-hero-front.jpg" alt="Car 16">
+            <h3>Jaguar F-Type</h3>
+            <p>Brand: Jaguar<br>Year: 2023<br>Price: $80,000</p>
+        </div>
+        <div class="card">
+            <img src="Beverly-Hills-Magazine-Super-Sports-Car-Maserati-MC20-2.jpg" alt="Car 17">
+            <h3>Maserati MC20</h3>
+            <p>Brand: Maserati<br>Year: 2023<br>Price: $210,000</p>
+        </div>
+        <div class="card">
+            <img src="koenigsegg_jesko_prototype_2019_4k_2-1920x1080.jpg" alt="Car 18">
+            <h3>Koenigsegg Jesko</h3>
+            <p>Brand: Koenigsegg<br>Year: 2023<br>Price: $3,000,000</p>
+        </div>
+        <div class="card">
+            <img src="Pagani-Huayra-Roadster-BC-01.jpg" alt="Car 19">
+            <h3>Pagani Huayra</h3>
+            <p>Brand: Pagani<br>Year: 2023<br>Price: $3,500,000</p>
+        </div>
+        <div class="card">
+            <img src="Lotus Evija 12.jpg" alt="Car 20">
+            <h3>Lotus Evija</h3>
+            <p>Brand: Lotus<br>Year: 2023<br>Price: $2,100,000</p>
+        </div>
+        <div class="card">
+            <img src="hennessey-venom-f5-6.jpg" alt="Car 21">
+            <h3>Hennessey Venom F5</h3>
+            <p>Brand: Hennessey<br>Year: 2023<br>Price: $2,700,000</p>
+        </div>
+        <div class="card">
+            <img src="rimac_nevera_2022_4k_2-3840x2160.jpg" alt="Car 22">
+            <h3>Rimac Nevera</h3>
+            <p>Brand: Rimac<br>Year: 2023<br>Price: $2,400,000</p>
+        </div>
+        <div class="card">
+            <img src="lucid_air_dream_fronte.jpg" alt="Car 23">
+            <h3>Lucid Air Dream Edition</h3>
+            <p>Brand: Lucid<br>Year: 2023<br>Price: $170,000</p>
+        </div>
+        <div class="card">
+            <img src="front-3-4-view-of-the-2024-cadillac-ct4-v-blackwing-in-cyber-yellow-metallic-driving-in-a-tunnel..jpg" alt="Car 24">
+            <h3>Cadillac CT5-V Blackwing</h3>
+            <p>Brand: Cadillac<br>Year: 2023<br>Price: $90,000</p>
+        </div>
+        <div class="card">
+            <img src="alfa-romeo-giulia_100738410.jpg" alt="Car 25">
+            <h3>Alfa Romeo Giulia Quadrifoglio</h3>
+            <p>Brand: Alfa Romeo<br>Year: 2023<br>Price: $80,000</p>
+        </div>
+        <div class="card">
+            <img src="b026ec216e83a5f30df402b34ec8a0d9.jpg" alt="Car 26">
+            <h3>Subaru WRX STI</h3>
+            <p>Brand: Subaru<br>Year: 2023<br>Price: $40,000</p>
+        </div>
+        <div class="card">
+            <img src="hyundai_n_vision_74_car_2022_2_4k_hd_cars.jpg" alt="Car 27">
+            <h3>Hyundai N Vision 74</h3>
+            <p>Brand: Hyundai<br>Year: 2023<br>Price: $50,000</p>
+        </div>
+        <div class="card">
+            <img src="1kiastingergtline.jpg" alt="Car 28">
+            <h3>Kia Stinger GT</h3>
+            <p>Brand: Kia<br>Year: 2023<br>Price: $45,000</p>
+        </div>
+        <div class="card">
+            <img src="vw-golf-r-2021.jpg" alt="Car 29">
+            <h3>Volkswagen Golf R</h3>
+            <p>Brand: Volkswagen<br>Year: 2023<br>Price: $44,000</p>
+        </div>
+        <div class="card">
+            <img src="toyota_gr_supra_rz_matte_white_edition_2022_5k_2-1920x1080.jpg" alt="Car 30">
+            <h3>Toyota GR Supra</h3>
+            <p>Brand: Toyota<br>Year: 2023<br>Price: $54,000</p>
+    </div>
+    <div class="card">
+        <img src="qvu6ttf7.jpg" alt="Car 31">
+        <h3>Honda Civic Type R</h3>
+        <p>Brand: Honda<br>Year: 2023<br>Price: $44,000</p>
+    </div>
+    <div class="card">
+        <img src="1693551.jpg" alt="Car 32">
+        <h3>Mitsubishi Lancer Evo XI</h3>
+        <p>Brand: Mitsubishi<br>Year: 2023<br>Price: $45,000</p>
+    </div>
+    <div class="card">
+        <img src="PEUGEOT_508PSE_TESTDRIVE_0121TC219-e1617710649117-1-e1619556273337.jpg" alt="Car 33">
+        <h3>Peugeot 508 PSE</h3>
+        <p>Brand: Peugeot<br>Year: 2023<br>Price: $55,000</p>
+    </div>
+    <div class="card">
+        <img src="2019-Renault-Megane-RS-Trophy.jpg" alt="Car 34">
+        <h3>Renault Megane RS</h3>
+        <p>Brand: Renault<br>Year: 2023<br>Price: $45,000</p>
+    </div>
+    <div class="card">
+        <img src="abarth-124-14.jpg" alt="Car 35">
+        <h3>Fiat 124 Spider</h3>
+        <p>Brand: Fiat<br>Year: 2023<br>Price: $30,000</p>
+    </div>
+    <div class="card">
+        <img src="opel-unveils-all-new-astra-gse-hot-hatchback-with-221-hp-plug-in-hybrid-engine-199809_1.jpg" alt="Car 36">
+        <h3>Opel Astra GSe</h3>
+        <p>Brand: Opel<br>Year: 2023<br>Price: $38,000</p>
+    </div>
+    <div class="card">
+        <img src="ifzcn3hh.jpg" alt="Car 37">
+        <h3>Seat Leon Cupra</h3>
+        <p>Brand: Seat<br>Year: 2023<br>Price: $40,000</p>
+    </div>
+    <div class="card">
+        <img src="d3z0k0va.jpg" alt="Car 38">
+        <h3>Skoda Octavia RS</h3>
+        <p>Brand: Skoda<br>Year: 2024<br>Price: $42,000</p>
+    </div>
+    <div class="card">
+        <img src="01_13.jpg" alt="Car 39">
+        <h3>Volvo S60 Polestar</h3>
+        <p>Brand: Volvo<br>Year: 2023<br>Price: $60,000</p>
+    </div>
+    <div class="card">
+        <img src="91e02a9a-2019-suzuki-swift-sport-katana-limited-edition-10.jpg" alt="Car 40">
+        <h3>Suzuki Swift Sport</h3>
+        <p>Brand: Suzuki<br>Year: 2023<br>Price: $22,000</p>
+    </div>
+    <div class="card">
+        <img src="Citroen-e-C4-X-2-1920x960.jpg" alt="Car 41">
+        <h3>Citroen C4 X</h3>
+        <p>Brand: Citroen<br>Year: 2023<br>Price: $25,000</p>
+    </div>
+    <div class="card">
+        <img src="p352oxm6.jpg" alt="Car 42">
+        <h3>Jeep Grand Cherokee</h3>
+        <p>Brand: Jeep<br>Year: 2023<br>Price: $40,000</p>
+    </div>
+    <div class="card">
+        <img src="y2a4ws9c.jpg" alt="Car 43">
+        <h3>Dodge Charger SRT Hellcat</h3>
+        <p>Brand: Dodge<br>Year: 2023<br>Price: $70,000</p>
+    </div>
+    <div class="card">
+        <img src="80vhgfyr.jpg" alt="Car 44">
+        <h3>Ram 1500 TRX</h3>
+        <p>Brand: Ram<br>Year: 2023<br>Price: $78,000</p>
+    </div>
+    <div class="card">
+        <img src="1079269.jpg" alt="Car 45">
+        <h3>GMC Sierra Denali</h3>
+        <p>Brand: GMC<br>Year: 2023<br>Price: $68,000</p>
+    </div>
+    <div class="card">
+        <img src="Silverado-ZR2-Hero.jpg" alt="Car 46">
+        <h3>Chevrolet Silverado ZR2</h3>
+        <p>Brand: Chevrolet<br>Year: 2023<br>Price: $72,000</p>
+    </div>
+    <div class="card">
+        <img src="xiutffn8.jpg" alt="Car 47">
+        <h3>Toyota Land Cruiser</h3>
+        <p>Brand: Toyota<br>Year: 2023<br>Price: $85,000</p>
+    </div>
+    <div class="card">
+        <img src="silver_nissan-patrol-v_2024_5498_main_d562258fda0aed82fba4d8e7a63b5334.jpg" alt="Car 48">
+        <h3>Nissan Patrol</h3>
+        <p>Brand: Nissan<br>Year: 2023<br>Price: $78,000</p>
+    </div>
+    <div class="card">
+        <img src="2020-ford-explorer-st.jpg" alt="Car 49">
+        <h3>Ford Explorer ST</h3>
+        <p>Brand: Ford<br>Year: 2023<br>Price: $55,000</p>
+    </div>
+      </div>  
+     </body>
+        </html>
+
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            alert("You have successfully logged in!");
+        }
+    </script>
+</body>
+</html>
