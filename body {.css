@@ -149,27 +149,3 @@ body {
 .car-details ul li {
     margin: 5px 0;
 }
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Cars</title>
-    <!-- Link to external CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        function loginWith(service) {
-            switch (service) {
-                case 'google':
-                    window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth';
-                    break;
-                case 'github':
-                    window.location.href = 'https://github.com/login/oauth/authorize';
-                    break;
-                case 'apple':
-                    window.location.href = 'https://appleid.apple.com/auth/authorize';
-                    break;
-                default:
-                    alert('Invalid service');
-            }
-        }
-    </script>
-</head>
