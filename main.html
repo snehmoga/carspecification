@@ -476,3 +476,24 @@
     </script>
 </body>
 </html>
+name: pages-build-deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create docs directory
+      run: mkdir -p docs
+
+    - name: Build Jekyll site
+      uses: actions/jekyll-build-pages@v1.0.13
+      
